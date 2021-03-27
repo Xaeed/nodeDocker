@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A small Api wraper call ",
+  "main": "server.js",
+  "author": "M.Saeed",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --verbose --env=node"
+  },
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "node-cron": "2.0.3",
+    "redis": "^3.0.2"
+  }
+}

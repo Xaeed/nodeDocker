@@ -1,0 +1,22 @@
+version: "3"
+services:
+  redis-srever:
+    image: "redis"
+    ports:
+      - "6379:6379"
+  ct-profileGenApi:
+    image: "gcr.io/careerteam-internal-api/ct-candidate-generator"
+    ports:
+      - "3000:3000"
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - "9000:9000"
+# Testing should be also dockerize as when we run docker it should use same build and run test
+# was not clear how i can do this in limited time so didn't try
+# right now to test backend :  go to  docker exec -it BACEKD_CONTAINER_ID sh and then execuete YARN test
