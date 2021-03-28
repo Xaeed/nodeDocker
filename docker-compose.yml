@@ -6,8 +6,8 @@ services:
       - "6379:6379"
   ct-profileGenApi:
     image: "gcr.io/careerteam-internal-api/ct-candidate-generator"
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
   node-app:
     build:
       context: .
@@ -17,6 +17,14 @@ services:
       - .:/usr/src/app
     ports:
       - "9000:9000"
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    command: ["npm", "run", "test"]
 # Testing should be also dockerize as when we run docker it should use same build and run test
 # was not clear how i can do this in limited time so didn't try
 # right now to test backend :  go to  docker exec -it BACEKD_CONTAINER_ID sh and then execuete YARN test

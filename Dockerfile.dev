@@ -3,8 +3,8 @@ FROM node:latest
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /
-
+RUN npm install -g pm2
 RUN npm install
 COPY . .
 
-CMD ["npm","run","start"]
+CMD ["npm","run","pm2"]
