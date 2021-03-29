@@ -4,5 +4,5 @@ services:
 
 before_install:
   - docker-compose build
-# script:
-#   - docker-compose up
+script:
+  - docker-compose up
