@@ -9,4 +9,5 @@ class Provider {
 }
 
 const provider = new Provider();
+
 module.exports = provider;
