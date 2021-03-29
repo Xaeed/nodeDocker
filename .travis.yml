@@ -5,8 +5,8 @@ services:
 before_install:
   - docker-compose build
 install: npm install
- script:
-  - docker-compose up
+script:
+  - docker-compose ups
 deploy:
   provider: "elasticbeanstalk"
   region: "us-east-2",
