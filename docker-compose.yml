@@ -30,7 +30,7 @@ services:
     volumes:
       - /usr/src/app/node_modules
       - .:/usr/src/app
-    command: ["npm", "run", "test"]
+    command: ["npm", "run", "test -- --coverage"]
 # Testing should be also dockerize as when we run docker it should use same build and run test
 # was not clear how i can do this in limited time so didn't try
 # right now to test backend :  go to  docker exec -it BACEKD_CONTAINER_ID sh and then execuete YARN test
