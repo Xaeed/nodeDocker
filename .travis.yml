@@ -1,1 +1,9 @@
-sudo
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker-compose build -t nodeDocker
+
+script:
+  - docker-compose up nodeDocker npm run test -- --coverage

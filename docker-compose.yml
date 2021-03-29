@@ -17,6 +17,12 @@ services:
       - .:/usr/src/app
     ports:
       - "9000:9000"
+  gw:
+    build:
+      dockerfile: Dockerfile
+      context: ./gw-nginx-conf
+    ports:
+      - "5500:80"
   tests:
     build:
       context: .
