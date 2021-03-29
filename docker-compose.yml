@@ -9,6 +9,7 @@ services:
     # ports:
     #   - "3000:3000"
   node-app:
+    image: nodeapp:v1
     build:
       context: .
       dockerfile: Dockerfile.dev
