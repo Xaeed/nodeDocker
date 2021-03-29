@@ -7,7 +7,4 @@ const redisClient = () => {
   }
 };
 
-
-
-
 module.exports = redisClient();
