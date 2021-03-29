@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker-compose build -t nodeDocker
+  - docker-compose build
 
 script:
-  - docker-compose up nodeDocker npm run test -- --coverage
+  - docker-compose up  npm run test -- --coverage
