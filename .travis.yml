@@ -3,6 +3,21 @@ services:
   - docker
 before_install:
   - docker-compose build
+   - docker build -t backendapp .
 script:
   - docker ps -a
-   
+  after_success:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    - docker push saeeddocker1/backendapp
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-550229037490"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"

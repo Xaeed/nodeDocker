@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "redis-srever",
+      "image": "redis",
+      "hostname": "redis-srever",
+      "memory": 500,
+      "essential": true,
+      "portMappings": {
+        "containerPort": 6379,
+        "hostPort": 6379
+      }
+    },
+    {
+      "name": "ct-profileGenAp",
+      "image": "gcr.io/careerteam-internal-api/ct-candidate-generator",
+      "memory": 128,
+      "portMappings": {
+        "containerPort": 3000,
+        "hostPort": 3000
+      },
+      "essential": false
+    },
+    {
+      "name": "node-app",
+      "image": "saeeddocker1/backendapp",
+      "links": ["redis-srever", "ct-profileGenAp"],
+      "portMappings": {
+        "containerPort": 9000,
+        "hostPort": 9000
+      },
+      "memory": 128,
+      "essential": false
+    }
+  ]
+}

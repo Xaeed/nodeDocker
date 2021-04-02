@@ -5,5 +5,6 @@ describe("Candidate fetch service", () => {
     const spy = jest.spyOn(candidateService, "getCandidate");
     await candidateService.getCandidate();
     expect(spy).toHaveBeenCalled();
+    expect(spy).toBeLessThanOrEqual(5);
   });
 });
